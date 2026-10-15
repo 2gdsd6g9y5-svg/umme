@@ -1,0 +1,12 @@
+# robots.txt for Italia Immigrazione Milano
+# Website: https://italiaimmigrazione.it
+# Generated automatically on build
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /?admin=true
+
+# Host & Sitemaps for Googlebot, Bingbot, Yandex, DuckDuckGo
+Host: https://italiaimmigrazione.it
+Sitemap: https://italiaimmigrazione.it/sitemap.xml

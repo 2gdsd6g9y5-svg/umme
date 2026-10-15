@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-editorial: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-cinzel: "Cinzel", Georgia, serif;
+  --font-signature: "Alex Brush", "Playfair Display", cursive;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-arabic: "Tajawal", "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --color-obsidian: #080D16;
+  --color-midnight: #0D1624;
+  --color-slate-luxury: #121E31;
+  --color-gold: #C5A880;
+  --color-gold-light: #DFC7A5;
+  --color-deep-blue: #173650;
+  --color-terracotta: #B45F42;
+  --color-ivory: #FCFAF6;
+  --color-beige: #E7DED4;
+  --color-blue-grey: #536176;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #080D16;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+  letter-spacing: -0.01em;
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-law {
+  font-family: var(--font-cinzel);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.font-signature {
+  font-family: var(--font-signature);
+}
+
+/* 3D Perspective Grid for Hero (Joseph Law aesthetic) */
+.hero-perspective-container {
+  perspective: 750px;
+  perspective-origin: 50% 60%;
+}
+
+.hero-3d-grid {
+  transform: rotateX(68deg);
+  background-image: 
+    linear-gradient(to right, rgba(197, 168, 128, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 168, 128, 0.22) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, black 20%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, black 20%, transparent 85%);
+}
+
+/* RTL support adjustments */
+[dir="rtl"] {
+  font-family: var(--font-arabic), var(--font-sans);
+}
+[dir="rtl"] .font-editorial {
+  font-family: var(--font-arabic), var(--font-serif);
+}
+
+/* Custom subtle dark scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080D16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A880;
+}
