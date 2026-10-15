@@ -35,7 +35,7 @@ export interface TeamMember {
   isLegalCounsel?: boolean;
   legalNote?: string;
   initials: string;
-  image: string;
+  image?: string;
   fallbackImage?: string;
 }
 

@@ -188,7 +188,7 @@ export const SECTIONS_SEO: Record<string, SectionSEO> = {
     ],
     ogTitle: 'Il Team di Professionisti a Milano · Italia Immigrazione',
     ogDescription: 'Professionisti qualificati ed esperti nel diritto dell\'immigrazione e nelle relazioni con le comunità straniere a Milano.',
-    ogImage: '/team/samad.jpg',
+    ogImage: '/images/milan_street_palazzi.jpg',
     priority: 0.85,
     changefreq: 'monthly',
     breadcrumb: 'I Nostri Esperti',

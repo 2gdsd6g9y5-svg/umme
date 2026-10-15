@@ -29,19 +29,17 @@ Sito web istituzionale premium per **Italia Immigrazione**, servizio di orientam
 
 ---
 
-## 👥 Il Team (5 Professionisti & Foto Originali)
+## 👥 Il Team (5 Professionisti & Foto Originali senza modifiche)
 
 1. **Samad Chaudhry** (`samad.jpg`) — Consulente di immigrazione (11 anni di esperienza dichiarata).
-2. **Annalisa Rottola** (`IMG_1342.jpg`) — Avvocata specializzata in immigrazione (22 anni di esperienza dichiarata).
-3. **Giovanni Rossetti** (`IMG_1344.jpg`) — Consulente per le procedure di immigrazione (15 anni di esperienza dichiarata).
-4. **Elisa Bova** (`IMG_1334.jpg`) — Consulente di immigrazione & Digital Marketing Specialist.
-5. **Ahlam Moutaabbid** (`fcdcca9c-6e6c-4923-8bff-b2f9e93353e7.jpg`) — Traduttrice e interprete multilingue.
+2. **Annalisa Rottola** (`annalisa.jpg` / `IMG_1342.jpg`) — Avvocata specializzata in immigrazione (22 anni di esperienza dichiarata, Patrocinante).
+3. **Giovanni Rossetti** (`giovanni.jpg` / `IMG_1344.jpg`) — Consulente per le procedure di immigrazione (15 anni di esperienza dichiarata).
+4. **Elisa Bova** (`elisa.jpg` / `IMG_1334.jpg`) — Consulente di immigrazione & Digital Marketing Specialist.
+5. **Ahlam Moutaabbid** (`ahlam.jpg` / `fcdcca9c-6e6c-4923-8bff-b2f9e93353e7.jpg`) — Traduttrice e interprete multilingue.
 
-> **Protezione Foto & Area Riservata (Solo per Te)**: 
-> - **Per tutti i visitatori pubblici**: il sito è completamente blindato e professionale; nessuno vede pulsanti di modifica, upload o caricamento.
-> - **Solo per il titolare (Admin)**: clicca su **"Area Riservata"** in fondo al sito (nel footer) oppure apri l'URL aggiungendo `?admin=true`. Inserisci la password amministratore: `samad2026`.
-> - Solo quando sei autenticato come Admin compaiono i pulsanti per sostituire o aggiornare le foto dei membri del team.
-> - Quando hai finito, puoi cliccare su **"Esci da Admin"** per tornare alla visualizzazione pubblica pulita.
+> **Visualizzazione Fedele al 100%**: 
+> - Tutte le 5 foto sono caricate nel formato e risoluzione originali, senza ritagli forzati né filtri grafici o gradienti.
+> - Cliccando su ogni foto è possibile visualizzare l'immagine originale a pieno schermo in alta definizione.
 
 ---
 
