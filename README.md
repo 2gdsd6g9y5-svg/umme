@@ -31,7 +31,7 @@ Sito web istituzionale premium per **Italia Immigrazione**, servizio di orientam
 
 ## 👥 Il Team (5 Professionisti & Foto Originali)
 
-1. **Samad Chaudhry** (`IMG_1335.jpg`) — Consulente di immigrazione (11 anni di esperienza dichiarata).
+1. **Samad Chaudhry** (`samad.jpg`) — Consulente di immigrazione (11 anni di esperienza dichiarata).
 2. **Annalisa Rottola** (`IMG_1342.jpg`) — Avvocata specializzata in immigrazione (22 anni di esperienza dichiarata).
 3. **Giovanni Rossetti** (`IMG_1344.jpg`) — Consulente per le procedure di immigrazione (15 anni di esperienza dichiarata).
 4. **Elisa Bova** (`IMG_1334.jpg`) — Consulente di immigrazione & Digital Marketing Specialist.
