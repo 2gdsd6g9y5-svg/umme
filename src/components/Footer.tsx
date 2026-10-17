@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="lg:col-span-4 space-y-5">
             <div className="flex items-center gap-3">
               <img
-                src="/logo.png"
+                src="/logo.png?v=gold"
                 alt="Logo Italia Immigrazione"
                 className="w-10 h-10 object-contain drop-shadow-md"
                 onError={(e) => {
@@ -97,8 +97,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li><a href="#team" className="hover:text-white transition-colors">I Nostri Professionisti</a></li>
               <li><a href="#lingue" className="hover:text-white transition-colors">Lingue dello Studio</a></li>
               <li><a href="#recensioni" className="hover:text-white transition-colors text-[#C5A880]">Storie di Successo & Recensioni</a></li>
-              <li><a href="#ufficio" className="hover:text-white transition-colors">Sede di Milano</a></li>
-              <li><a href="#contatti" className="hover:text-white transition-colors">Contatti</a></li>
+              <li><a href="#contatti" className="hover:text-white transition-colors">Sede di Milano & Contatti</a></li>
               <li className="pt-2">
                 <button
                   type="button"

@@ -13,9 +13,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { ProcessSection } from './components/ProcessSection';
 import { TeamSection } from './components/TeamSection';
 import { LanguagesSection } from './components/LanguagesSection';
-import { EthicsSection } from './components/EthicsSection';
 import { ReviewsSection } from './components/ReviewsSection';
-import { OfficeSection } from './components/OfficeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ConsultationModal } from './components/ConsultationModal';
@@ -170,7 +168,7 @@ export default function App() {
           isAdmin={isAdmin}
         />
 
-        {/* 6. Lingue & Comunicazione with 100+ Languages global modal trigger */}
+        {/* 6. Lingue & Comunicazione */}
         <LanguagesSection
           currentLang={currentLang}
           onLanguageChange={handleLanguageChange}
@@ -178,19 +176,13 @@ export default function App() {
           onOpenTranslationModal={() => setIsTranslationModalOpen(true)}
         />
 
-        {/* 7. Esperienza e Collaborazione Legale */}
-        <EthicsSection />
-
-        {/* 8. Recensioni & Storie di Successo (Riprova Sociale e Casi Anonimizzati) */}
+        {/* 7. Recensioni & Storie di Successo (Riprova Sociale e Casi Anonimizzati) */}
         <ReviewsSection
           currentLang={currentLang}
           onOpenConsultation={(serviceTitle) => handleOpenConsultation(serviceTitle)}
         />
 
-        {/* 9. Ufficio di Milano with Real Milan Architectural Facade */}
-        <OfficeSection currentLang={currentLang} />
-
-        {/* 9. Contatti & Form di Richiesta */}
+        {/* 8. Ufficio di Milano & Contatti Diretti (Unificati) */}
         <ContactSection
           currentLang={currentLang}
           initialService={consultationService}

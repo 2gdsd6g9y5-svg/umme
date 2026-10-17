@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
       setIsScrolled(window.scrollY > 30);
 
       // Track active section for underline indicator
-      const sections = ['home', 'art-18-ter', 'chi-siamo', 'servizi', 'come-funziona', 'team', 'lingue', 'recensioni', 'ufficio', 'contatti'];
+      const sections = ['home', 'art-18-ter', 'chi-siamo', 'servizi', 'come-funziona', 'team', 'lingue', 'recensioni', 'contatti'];
       const scrollPos = window.scrollY + 120;
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -50,15 +50,14 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navLinks = [
     { id: 'home', href: '#home', label: t.nav.home },
-    { id: 'art-18-ter', href: '#art-18-ter', label: 'Art. 18-ter Sfruttamento', isEmergency: true },
+    { id: 'art-18-ter', href: '#art-18-ter', label: 'Art. 18-ter', isEmergency: true },
     { id: 'servizi', href: '#servizi', label: t.nav.services },
     { id: 'team', href: '#team', label: t.nav.team },
     { id: 'chi-siamo', href: '#chi-siamo', label: 'Chi Siamo' },
     { id: 'come-funziona', href: '#come-funziona', label: t.nav.howItWorks },
     { id: 'lingue', href: '#lingue', label: t.nav.languages },
     { id: 'recensioni', href: '#recensioni', label: 'Recensioni' },
-    { id: 'ufficio', href: '#ufficio', label: t.nav.office },
-    { id: 'contatti', href: '#contatti', label: t.nav.contact },
+    { id: 'contatti', href: '#contatti', label: 'Ufficio & Contatti' },
   ];
 
   const currentLangObj = LANGUAGES_SUPPORTED.find((l) => l.code === currentLang) || {
@@ -108,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Official Logo Emblem */}
             <div className="relative flex items-center justify-center shrink-0">
               <img
-                src={customLogo || '/logo.png'}
+                src={customLogo || '/logo.png?v=gold'}
                 alt="Logo Italia Immigrazione"
                 className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-md group-hover:scale-105 transition-transform"
                 onError={(e) => {

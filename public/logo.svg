@@ -2,8 +2,8 @@
   <defs>
     <!-- Radial & Linear Gradients -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#173650" />
-      <stop offset="100%" stop-color="#10263D" />
+      <stop offset="0%" stop-color="#18140E" />
+      <stop offset="100%" stop-color="#0D0B08" />
     </linearGradient>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F3E5AB" />

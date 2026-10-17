@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, MessageSquare, Send, CheckCircle2, AlertCircle, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageSquare, Send, CheckCircle2, AlertCircle, Clock, Train, ExternalLink } from 'lucide-react';
 import { SupportedLanguage, ContactFormData } from '../types';
 import { CONTACT_INFO, SERVICES, TRANSLATIONS, LANGUAGES_SUPPORTED } from '../data/content';
 
@@ -70,103 +70,128 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   return (
-    <section id="contatti" className="py-28 bg-[#080D16] text-white border-t border-white/10 relative">
+    <section id="contatti" className="py-10 sm:py-12 bg-[#080D16] text-white border-t border-white/10 relative">
+      {/* Anchor for #ufficio so both navigation links smoothly land here */}
+      <div id="ufficio" className="-mt-24 pt-24" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 space-y-4">
+        <div className="max-w-3xl mb-6 space-y-2">
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#C5A880]">
             <span className="w-6 h-[1.5px] bg-[#C5A880]" />
-            <span>{t.contactHeading.kicker}</span>
+            <span>STUDIO IMMIGRAZIONE · MILANO</span>
           </div>
 
-          <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight text-balance">
-            {t.contactHeading.title}
+          <h2 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-normal text-white leading-tight">
+            Ufficio di Milano & Contatti Diretti
           </h2>
 
-          <p className="text-base sm:text-lg text-[#E7DED4]/80 leading-relaxed font-light">
-            {t.contactHeading.subtitle}
+          <p className="text-xs sm:text-sm text-[#E7DED4]/80 leading-relaxed font-light">
+            Riceviamo su appuntamento nel nostro studio di Milano (Città Studi / Piola). Contattaci per telefono, WhatsApp, email o compila il modulo per una valutazione preliminare rapida.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left Column: Direct Contact Information */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-4">
-              <h3 className="font-editorial text-2xl font-bold text-white">
-                Recapiti Ufficiali dello Studio
-              </h3>
-              <p className="text-sm text-[#E7DED4]/80 leading-relaxed font-light">
-                Puoi contattarci telefonicamente, via WhatsApp o via email, oppure prenotare un colloquio compilando il form a lato.
-              </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Office, Building, Transit & Direct Channels */}
+          <div className="lg:col-span-5 space-y-5">
+            {/* Office Facade Card with Photo */}
+            <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0D1624] shadow-xl group">
+              <div className="relative h-44 overflow-hidden">
+                <img
+                  src="/images/milan_street_palazzi.jpg"
+                  alt="Sede dello Studio Immigrazione a Milano"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1624] via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
+                  <span className="px-2.5 py-1 rounded bg-black/75 backdrop-blur-xs text-[#DFC7A5] font-mono text-[11px] border border-white/10">
+                    Sede di Milano · Città Studi
+                  </span>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#C5A880] text-[#080D16] font-semibold text-[11px] hover:bg-[#b0936b] transition-colors"
+                  >
+                    <span>Mappe</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="p-4 space-y-3">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#C5A880] block">Indirizzo:</span>
+                    <p className="font-semibold text-white">{CONTACT_INFO.address}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 pt-2 border-t border-white/5">
+                  <Train className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
+                  <div className="text-xs space-y-0.5">
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#C5A880] block">Collegamenti Mezzi:</span>
+                    <p className="text-[#E7DED4]/80">Metro M2 (Verde) Stazioni <strong>Piola</strong> (5 min) o <strong>Lambrate FS</strong></p>
+                    <p className="text-[#E7DED4]/70">Linee tram e bus 39, 54, 62 a pochi passi</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 pt-2 border-t border-white/5">
+                  <Clock className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
+                  <div className="text-xs space-y-0.5">
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#C5A880] block">Orari di Ricevimento:</span>
+                    <p className="text-[#E7DED4]/80">{CONTACT_INFO.hours}</p>
+                    <p className="text-[11px] text-[#DFC7A5] font-light">Ricevimento riservato su prenotazione</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-4">
-              {/* Telephone */}
+            {/* Quick Contact Buttons (Phone, WhatsApp, Email) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a
                 href={`tel:${CONTACT_INFO.phoneClean}`}
-                className="p-5 rounded-xl bg-[#0D1624] border border-white/10 flex items-center gap-4 hover:border-[#C5A880]/60 transition-all group"
+                className="p-3.5 rounded-lg bg-[#0D1624] border border-white/10 hover:border-[#C5A880]/60 transition-all flex items-center gap-3 group"
               >
-                <div className="p-3 rounded-lg bg-[#080D16] text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-[#080D16] transition-colors">
-                  <Phone className="w-5 h-5" />
+                <div className="p-2 rounded bg-[#080D16] text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-[#080D16] transition-colors">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs text-[#E7DED4]/60 block font-mono">TELEFONO DIRETTO</span>
-                  <span className="font-mono text-base font-bold text-white tracking-wide">{CONTACT_INFO.phone}</span>
+                  <span className="text-[10px] text-[#E7DED4]/60 block font-mono">TELEFONO</span>
+                  <span className="font-mono text-xs font-bold text-white">{CONTACT_INFO.phone}</span>
                 </div>
               </a>
 
-              {/* WhatsApp direct */}
               <a
                 href={CONTACT_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 rounded-xl bg-[#0D1624] border border-white/10 flex items-center gap-4 hover:border-emerald-500/60 transition-all group"
+                className="p-3.5 rounded-lg bg-[#0D1624] border border-white/10 hover:border-emerald-500/60 transition-all flex items-center gap-3 group"
               >
-                <div className="p-3 rounded-lg bg-emerald-950/60 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
-                  <MessageSquare className="w-5 h-5" />
+                <div className="p-2 rounded bg-emerald-950/60 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                  <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs text-emerald-400/80 block font-mono">WHATSAPP STUDIO</span>
-                  <span className="font-mono text-base font-bold text-white tracking-wide">{CONTACT_INFO.phone}</span>
+                  <span className="text-[10px] text-emerald-400/80 block font-mono">WHATSAPP</span>
+                  <span className="font-mono text-xs font-bold text-white">{CONTACT_INFO.phone}</span>
                 </div>
               </a>
-
-              {/* Email */}
-              <a
-                href={`mailto:${CONTACT_INFO.email}`}
-                className="p-5 rounded-xl bg-[#0D1624] border border-white/10 flex items-center gap-4 hover:border-[#C5A880]/60 transition-all group"
-              >
-                <div className="p-3 rounded-lg bg-[#080D16] text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-[#080D16] transition-colors">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs text-[#E7DED4]/60 block font-mono">POSTA ELETTRONICA</span>
-                  <span className="font-mono text-sm font-semibold text-white">{CONTACT_INFO.email}</span>
-                </div>
-              </a>
-
-              {/* Address */}
-              <div className="p-5 rounded-xl bg-[#0D1624] border border-white/10 flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-[#080D16] text-[#C5A880]">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs text-[#E7DED4]/60 block font-mono">SEDE DI MILANO</span>
-                  <span className="text-sm font-semibold text-white">{CONTACT_INFO.address}</span>
-                </div>
-              </div>
             </div>
 
-            {/* Timetable note */}
-            <div className="p-5 rounded-xl bg-[#0D1624] border border-[#C5A880]/30 text-white flex items-start gap-3">
-              <Clock className="w-5 h-5 text-[#C5A880] shrink-0 mt-0.5" />
-              <div className="text-xs space-y-1">
-                <p className="font-semibold text-white uppercase tracking-wider text-[11px] text-[#C5A880]">Ricevimento Riservato su Prenotazione</p>
-                <p className="text-[#E7DED4]/80 leading-relaxed font-light">
-                  Per garantire la massima riservatezza e dedicare a ciascun fascicolo il tempo necessario, l'accesso allo studio è concordato su appuntamento.
-                </p>
+            <a
+              href={`mailto:${CONTACT_INFO.email}`}
+              className="p-3.5 rounded-lg bg-[#0D1624] border border-white/10 hover:border-[#C5A880]/60 transition-all flex items-center gap-3 group w-full"
+            >
+              <div className="p-2 rounded bg-[#080D16] text-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-[#080D16] transition-colors">
+                <Mail className="w-4 h-4" />
               </div>
-            </div>
+              <div className="overflow-hidden">
+                <span className="text-[10px] text-[#E7DED4]/60 block font-mono">EMAIL DIRETTA</span>
+                <span className="font-mono text-xs font-semibold text-white truncate block">{CONTACT_INFO.email}</span>
+              </div>
+            </a>
           </div>
 
           {/* Right Column: Interactive Luxury Form */}

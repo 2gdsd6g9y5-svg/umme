@@ -176,6 +176,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [reviews, setReviews] = useState<ReviewItem[]>(INITIAL_REVIEWS);
+  const [showAllReviews, setShowAllReviews] = useState(false);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [submittedSuccess, setSubmittedSuccess] = useState(false);
 
@@ -296,7 +297,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
   return (
     <section
       id="recensioni"
-      className="py-24 bg-[#0B121E] text-white relative border-b border-white/10 overflow-hidden"
+      className="py-10 sm:py-12 bg-[#0B121E] text-white relative border-b border-white/10 overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#C5A880]/5 rounded-full blur-3xl pointer-events-none" />
@@ -304,84 +305,57 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-3xl space-y-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-4">
+          <div className="max-w-3xl space-y-2">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#C5A880]">
               <span className="w-6 h-[1.5px] bg-[#C5A880]" />
               <span className="font-law">RIPROVA SOCIALE & STORIE DI SUCCESSO</span>
             </div>
 
-            <h2 className="font-law text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight tracking-[0.04em]">
+            <h2 className="font-law text-2xl sm:text-3xl lg:text-4xl font-semibold text-white leading-tight tracking-[0.04em]">
               Storie di Successo e Testimonianze dei Nostri Assistiti
             </h2>
 
-            <p className="text-base text-[#E7DED4]/80 leading-relaxed font-light">
-              Tutti i feedback e le storie di successo sono rigorosamente{' '}
-              <strong className="text-white font-medium">anonimizzati</strong> a norma del GDPR per proteggere l'identità, la riservatezza e la sicurezza personale dei lavoratori e delle famiglie assistite a Milano e in Lombardia.
+            <p className="text-xs sm:text-sm text-[#E7DED4]/80 leading-relaxed font-light">
+              Tutti i feedback sono rigorosamente <strong className="text-white font-medium">anonimizzati</strong> a norma del GDPR per proteggere la riservatezza e l'identità di lavoratori e famiglie a Milano.
             </p>
           </div>
 
           {/* Action to leave an anonymous testimonial */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 shrink-0">
             <button
               type="button"
               onClick={() => setIsSubmitModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-[#C5A880]/40 bg-[#080D16] hover:bg-[#C5A880]/10 text-[#C5A880] text-sm font-semibold tracking-wide transition-all shadow-md hover:border-[#C5A880]"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#C5A880]/40 bg-[#080D16] hover:bg-[#C5A880]/10 text-[#C5A880] text-xs font-semibold tracking-wide transition-all shadow-md"
             >
-              <MessageSquarePlus className="w-4 h-4" />
-              <span>Invia la tua Testimonianza</span>
+              <MessageSquarePlus className="w-3.5 h-3.5" />
+              <span>Invia Testimonianza</span>
             </button>
             <button
               type="button"
               onClick={() => handleOpenConsultationClick('Consulenza Ispirata da Storie di Successo')}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#C5A880] hover:bg-[#b0936b] text-[#080D16] text-sm font-semibold tracking-wide transition-all shadow-md hover:shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#C5A880] hover:bg-[#b0936b] text-[#080D16] text-xs font-semibold tracking-wide transition-all shadow-md"
             >
               <span>Richiedi Consulenza</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
-        {/* Trust Badges / Key Metrics Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-2xl bg-[#080D16]/90 border border-white/10 mb-12 shadow-xl">
-          <div className="flex items-center gap-3 p-2">
-            <div className="p-3 rounded-xl bg-[#C5A880]/10 border border-[#C5A880]/20 text-[#C5A880]">
-              <Award className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold font-cinzel text-white">98.4%</div>
-              <div className="text-xs text-[#E7DED4]/70">Casi Risolti Positivamente</div>
-            </div>
+        {/* Trust Badges - Sleek Compact Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-[#080D16]/90 border border-white/10 mb-5 text-xs text-[#E7DED4]/80 shadow-md">
+          <div className="flex items-center gap-2">
+            <Star className="w-4 h-4 fill-[#C5A880] text-[#C5A880]" />
+            <span className="font-bold text-white">4.9 / 5.0</span>
+            <span className="text-[#E7DED4]/60">Soddisfazione</span>
           </div>
-
-          <div className="flex items-center gap-3 p-2">
-            <div className="p-3 rounded-xl bg-[#C5A880]/10 border border-[#C5A880]/20 text-[#C5A880]">
-              <FileCheck2 className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold font-cinzel text-white">+1.200</div>
-              <div className="text-xs text-[#E7DED4]/70">Pratiche Gestite a Milano</div>
-            </div>
+          <div className="hidden sm:flex items-center gap-1.5 text-white/70">
+            <FileCheck2 className="w-3.5 h-3.5 text-[#C5A880]" />
+            <span>Oltre 1.200 pratiche gestite a Milano</span>
           </div>
-
-          <div className="flex items-center gap-3 p-2">
-            <div className="p-3 rounded-xl bg-[#C5A880]/10 border border-[#C5A880]/20 text-[#C5A880]">
-              <Lock className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold font-cinzel text-white">100%</div>
-              <div className="text-xs text-[#E7DED4]/70">Anonimato & GDPR Protetto</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 p-2">
-            <div className="p-3 rounded-xl bg-[#C5A880]/10 border border-[#C5A880]/20 text-[#C5A880]">
-              <Star className="w-5 h-5 sm:w-6 sm:h-6 fill-[#C5A880]" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold font-cinzel text-white">4.9 / 5.0</div>
-              <div className="text-xs text-[#E7DED4]/70">Indice di Soddisfazione</div>
-            </div>
+          <div className="flex items-center gap-1.5 text-emerald-400">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>100% Riservatezza & Anonimato GDPR</span>
           </div>
         </div>
 
@@ -467,11 +441,11 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
         </div>
 
         {/* Stories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredReviews.map((rev) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {(showAllReviews ? filteredReviews : filteredReviews.slice(0, 3)).map((rev) => (
             <div
               key={rev.id}
-              className={`p-6 rounded-2xl bg-[#080D16] border flex flex-col justify-between transition-all duration-300 hover:border-[#C5A880]/60 hover:shadow-xl hover:-translate-y-1 ${
+              className={`p-5 rounded-xl bg-[#080D16] border flex flex-col justify-between transition-all duration-200 hover:border-[#C5A880]/60 hover:shadow-lg ${
                 rev.isUserSubmitted
                   ? 'border-[#C5A880]/40 ring-1 ring-[#C5A880]/30'
                   : 'border-white/10'
@@ -479,112 +453,94 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
             >
               <div>
                 {/* Header card: initials, country, category tag */}
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#1B2A4A] to-[#0D1624] border border-[#C5A880]/30 flex items-center justify-center font-cinzel font-bold text-sm text-[#C5A880] shadow-inner shrink-0">
+                <div className="flex items-start justify-between gap-2.5 mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1B2A4A] to-[#0D1624] border border-[#C5A880]/30 flex items-center justify-center font-cinzel font-bold text-xs text-[#C5A880] shadow-inner shrink-0">
                       {rev.initials}
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-semibold text-white text-sm">{rev.initials}</span>
+                        <span className="font-semibold text-white text-xs sm:text-sm">{rev.initials}</span>
                         <span className="text-sm" title={rev.country}>
                           {rev.countryFlag}
                         </span>
                       </div>
-                      <div className="text-[11px] text-[#E7DED4]/60 leading-tight">
+                      <div className="text-[10px] sm:text-[11px] text-[#E7DED4]/60 leading-tight">
                         {rev.roleOrContext}
                       </div>
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#C5A880]/15 text-[#C5A880] border border-[#C5A880]/30 shrink-0">
+                  <span className="text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[#C5A880]/15 text-[#C5A880] border border-[#C5A880]/30 shrink-0">
                     {rev.serviceCategory === 'art-18-ter' ? 'Art. 18-ter' : rev.categoryLabel.split(' ')[0]}
                   </span>
                 </div>
 
                 {/* Rating & date */}
-                <div className="flex items-center justify-between mb-3.5">
+                <div className="flex items-center justify-between mb-2.5">
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-3.5 h-3.5 ${
+                        className={`w-3 h-3 ${
                           i < rev.rating
                             ? 'text-[#C5A880] fill-[#C5A880]'
                             : 'text-white/20'
                         }`}
                       />
                     ))}
-                    <span className="text-xs text-[#E7DED4]/60 ml-1.5">{rev.rating}.0</span>
+                    <span className="text-xs text-[#E7DED4]/60 ml-1">{rev.rating}.0</span>
                   </div>
-                  <span className="text-[11px] text-[#E7DED4]/40 flex items-center gap-1">
+                  <span className="text-[10px] text-[#E7DED4]/40 flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {rev.date}
                   </span>
                 </div>
 
                 {/* Story quote */}
-                <div className="relative mb-5">
-                  <Quote className="w-5 h-5 text-[#C5A880]/30 mb-1" />
-                  <p className="text-xs sm:text-sm text-[#E7DED4]/85 leading-relaxed font-light italic">
+                <div className="relative mb-4">
+                  <Quote className="w-4 h-4 text-[#C5A880]/30 mb-1" />
+                  <p className="text-xs text-[#E7DED4]/85 leading-relaxed font-light italic line-clamp-4">
                     "{rev.story}"
                   </p>
                 </div>
               </div>
 
               {/* Bottom Outcome & Verification badge */}
-              <div className="pt-4 border-t border-white/5 space-y-2">
+              <div className="pt-3 border-t border-white/5 space-y-1.5">
                 <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span className="truncate">{rev.outcomeTag}</span>
+                  <CheckCircle2 className="w-3 h-3 shrink-0" />
+                  <span className="truncate text-[11px]">{rev.outcomeTag}</span>
                 </div>
 
-                <div className="flex items-center justify-between text-[11px] text-[#E7DED4]/50">
+                <div className="flex items-center justify-between text-[10px] text-[#E7DED4]/50">
                   <span className="flex items-center gap-1">
                     <ShieldCheck className="w-3 h-3 text-[#C5A880]" />
-                    <span>{rev.verifiedLabel}</span>
+                    <span className="truncate">{rev.verifiedLabel}</span>
                   </span>
-                  <span className="text-[10px] text-[#C5A880]/80">{rev.timeframe}</span>
+                  <span className="text-[#C5A880]/80 shrink-0 ml-2">{rev.timeframe}</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Callout Banner for Legal Protection */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#0D1624] via-[#142034] to-[#0D1624] border border-[#C5A880]/30 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#C5A880]">
-              <Sparkles className="w-4 h-4" />
-              <span>HAI UN PROBLEMA SIMILE O RISCHI DI RESTARE SENZA DOCUMENTI?</span>
-            </div>
-            <h3 className="font-law text-xl sm:text-2xl text-white font-semibold">
-              Consulenza preliminare riservata, senza giudizio e nella tua lingua.
-            </h3>
-            <p className="text-xs sm:text-sm text-[#E7DED4]/75 max-w-2xl">
-              Che si tratti di sfruttamento lavorativo con l'Art. 18-ter, di una sanatoria bloccata in Questura a Milano, o di un ricongiungimento fermo in Prefettura, ogni situazione ha un rimedio giuridico previsto dalla legge italiana.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0">
+        {/* Expand / Collapse Button if more than 3 reviews */}
+        {filteredReviews.length > 3 && (
+          <div className="mt-5 flex justify-center">
             <button
               type="button"
-              onClick={() => handleOpenConsultationClick('Richiesta Assistenza da Sezione Storie di Successo')}
-              className="px-6 py-3.5 rounded-lg bg-[#C5A880] hover:bg-[#b0936b] text-[#080D16] font-bold text-sm tracking-wide transition-all shadow-lg flex items-center justify-center gap-2"
+              onClick={() => setShowAllReviews(!showAllReviews)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#C5A880]/40 bg-[#080D16] hover:bg-[#C5A880]/15 text-[#C5A880] text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm"
             >
-              <Scale className="w-4 h-4" />
-              <span>Parla con un Nostro Consulente</span>
+              <span>
+                {showAllReviews
+                  ? 'Mostra meno storie'
+                  : `Visualizza altre testimonianze (+${filteredReviews.length - 3})`}
+              </span>
             </button>
-            <a
-              href="https://wa.me/393532136704?text=Salve,%20ho%20letto%20le%20vostre%20storie%20di%20successo%20e%20vorrei%20una%20consulenza%20per%20la%20mia%20situazione."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-3.5 rounded-lg border border-white/20 bg-black/30 hover:bg-black/50 text-white font-medium text-sm transition-all flex items-center justify-center gap-2"
-            >
-              <span>WhatsApp Diretto</span>
-            </a>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Modal for Submitting Anonymous Testimonial */}

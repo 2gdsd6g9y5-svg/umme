@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight, ChevronRight, Award, ShieldCheck, MapPin, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, ChevronRight, Award, ShieldCheck, MapPin } from 'lucide-react';
 import { SupportedLanguage } from '../types';
 
 const heroBg = '/images/milan_duomo.jpg';
@@ -10,18 +10,10 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ currentLang: _currentLang, onOpenConsultation }) => {
-  const [activeTab, setActiveTab] = useState<number>(0);
-
-  const keyFocuses = [
-    { title: 'Cittadinanza Italiana', desc: 'Residenza decennale, matrimonio e discendenza ius sanguinis' },
-    { title: 'Permessi & Flussi', desc: 'Rinnovi, conversioni da studio a lavoro e decreti flussi' },
-    { title: 'Ricongiungimento', desc: 'Nulla osta SUI, coesione familiare e idoneità alloggiativa' },
-  ];
-
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-[#080D16] text-white flex flex-col justify-between pt-32 pb-10 overflow-hidden select-none"
+      className="relative bg-[#080D16] text-white flex flex-col justify-between pt-28 sm:pt-32 pb-8 sm:pb-10 overflow-hidden select-none"
     >
       {/* 1. Background Architectural Layer with Milan Duomo Panoramic View */}
       <div className="absolute inset-0 z-0">
@@ -126,35 +118,13 @@ export const Hero: React.FC<HeroProps> = ({ currentLang: _currentLang, onOpenCon
                 <span className="font-mono text-[11px] tracking-wider">MILANO · VIA AMPÈRE 126</span>
               </div>
             </div>
-
-            {/* Micro Tabs: 3 Main Pillars with Quick Insights */}
-            <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {keyFocuses.map((item, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setActiveTab(idx)}
-                  className={`text-left p-3 rounded transition-all border ${
-                    activeTab === idx
-                      ? 'bg-white/10 border-[#C5A880]/60'
-                      : 'bg-black/20 border-white/5 hover:border-white/20'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold text-white">{item.title}</span>
-                    <CheckCircle2 className={`w-3.5 h-3.5 ${activeTab === idx ? 'text-[#C5A880]' : 'text-white/30'}`} />
-                  </div>
-                  <p className="text-[11px] text-[#E7DED4]/70 leading-snug">{item.desc}</p>
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Right Column: Founder Authority Box with Elegant Signature */}
           <div className="lg:col-span-4 flex flex-col justify-end">
-            <div className="relative p-7 sm:p-8 bg-[#0D1624]/90 backdrop-blur-md border border-[#C5A880]/30 rounded-xl shadow-2xl space-y-6">
+            <div className="relative p-5 sm:p-6 bg-[#0D1624]/90 backdrop-blur-md border border-[#C5A880]/30 rounded-xl shadow-2xl space-y-4">
               {/* Subtle top badge */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/10">
+              <div className="flex items-center justify-between pb-3 border-b border-white/10">
                 <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-[#C5A880] uppercase">
                   <ShieldCheck className="w-4 h-4 text-[#C5A880]" />
                   <span>STUDIO QUALIFICATO</span>
@@ -163,29 +133,28 @@ export const Hero: React.FC<HeroProps> = ({ currentLang: _currentLang, onOpenCon
               </div>
 
               {/* Quote / Deontological pledge */}
-              <blockquote className="font-editorial text-lg sm:text-xl text-[#F3EFEA] italic leading-snug">
+              <blockquote className="font-editorial text-base sm:text-lg text-[#F3EFEA] italic leading-snug">
                 “Ogni pratica rappresenta una persona, una famiglia, un progetto di vita. Trattiamo ogni istanza con il massimo rigore procedurale e rispetto istituzionale.”
               </blockquote>
 
-              {/* Founder Cursive Signature & Name (Joseph Law signature element) */}
-              <div className="pt-2 flex items-center justify-between">
+              {/* Founder Cursive Signature & Name */}
+              <div className="pt-1 flex items-center justify-between">
                 <div>
-                  {/* Handwritten Calligraphy Signature */}
-                  <div className="font-signature text-4xl sm:text-5xl text-[#DFC7A5] tracking-wide select-none">
+                  <div className="font-signature text-3xl sm:text-4xl text-[#DFC7A5] tracking-wide select-none">
                     Samad Chaudhry
                   </div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-white mt-0.5">
                     Samad Chaudhry
                   </div>
-                  <div className="text-[11px] text-[#C5A880] tracking-wide">
+                  <div className="text-[10px] sm:text-[11px] text-[#C5A880] tracking-wide">
                     Fondatore & Consulente Immigrazione · 11 anni di esperienza
                   </div>
                 </div>
 
                 {/* Circular Gold Seal */}
-                <div className="w-14 h-14 rounded-full border border-[#C5A880]/50 flex items-center justify-center p-1 shrink-0 bg-[#080D16]/50">
+                <div className="w-12 h-12 rounded-full border border-[#C5A880]/50 flex items-center justify-center p-1 shrink-0 bg-[#080D16]/50">
                   <div className="w-full h-full rounded-full border border-[#C5A880]/30 flex flex-col items-center justify-center text-[7px] font-mono tracking-tighter text-[#C5A880] uppercase text-center leading-none">
-                    <Award className="w-4 h-4 text-[#C5A880] mb-0.5" />
+                    <Award className="w-3.5 h-3.5 text-[#C5A880] mb-0.5" />
                     <span>MILANO</span>
                   </div>
                 </div>
@@ -196,7 +165,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang: _currentLang, onOpenCon
                 href="https://wa.me/393532136704"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between px-4 py-2.5 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-[#E7DED4] hover:text-white transition-colors"
+                className="w-full flex items-center justify-between px-3.5 py-2 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-[#E7DED4] hover:text-white transition-colors"
               >
                 <span>Scrivici su WhatsApp (+39 353 213 6704)</span>
                 <ChevronRight className="w-3.5 h-3.5 text-[#C5A880]" />
@@ -207,7 +176,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang: _currentLang, onOpenCon
       </div>
 
       {/* 4. Bottom Metrics Bar with Roman / Numerals and Gold Accents */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 w-full pt-12 border-t border-white/10">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 w-full pt-6 sm:pt-8 border-t border-white/10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div className="space-y-1">
             <div className="text-[10px] font-mono text-[#C5A880] tracking-widest uppercase">01 / AFFIDABILITÀ</div>
